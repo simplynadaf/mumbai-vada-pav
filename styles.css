@@ -377,14 +377,15 @@ h1, h2, h3 { font-family: var(--font-display); line-height: 1.2; }
   color: #4a3f2f;
 }
 
-.recipe__servings input {
-  width: 60px;
-  padding: 0.4rem;
+.recipe__servings select {
+  padding: 0.5rem 1rem;
   border: 2px solid var(--tungsten);
   border-radius: 4px;
   font-size: 1rem;
-  text-align: center;
   background: white;
+  color: var(--ink);
+  cursor: pointer;
+  font-family: var(--font-body);
 }
 
 .recipe__grid {

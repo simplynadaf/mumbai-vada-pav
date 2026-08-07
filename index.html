@@ -177,7 +177,15 @@
 
       <div class="recipe__servings">
         <label for="servings">Servings:</label>
-        <input type="number" id="servings" value="4" min="1" max="20" aria-label="Number of servings" />
+        <select id="servings" aria-label="Number of servings">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="4" selected>4</option>
+          <option value="6">6</option>
+          <option value="8">8</option>
+          <option value="10">10</option>
+          <option value="12">12</option>
+        </select>
       </div>
 
       <div class="recipe__grid">
@@ -332,7 +340,7 @@
     const servingsInput = document.getElementById('servings');
     const baseServings = 4;
 
-    servingsInput.addEventListener('input', () => {
+    servingsInput.addEventListener('change', () => {
       const ratio = parseFloat(servingsInput.value) / baseServings;
       document.querySelectorAll('[data-base]').forEach(el => {
         const base = parseFloat(el.dataset.base);

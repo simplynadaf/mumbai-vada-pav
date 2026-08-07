@@ -1,7 +1,7 @@
 /* =========================================================================
-   ₹15 — THE MUMBAI VADA PAV STORY
+   ₹15: THE MUMBAI VADA PAV STORY
    Design tokens + Base styles
-   Palette: Mumbai street stall warmth — tungsten orange, saffron, night blue
+   Palette: Mumbai street stall warmth: tungsten orange, saffron, night blue
    ========================================================================= */
 
 :root {
@@ -780,7 +780,7 @@ h1, h2, h3 { font-family: var(--font-display); line-height: 1.2; }
 .nav__links a:hover { color: var(--saffron); text-decoration: none; }
 
 /* =========================================================================
-   RESPONSIVE — TABLET (768px - 1024px)
+   RESPONSIVE: TABLET (768px - 1024px)
    ========================================================================= */
 @media (max-width: 1024px) {
   .stats__grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
@@ -790,7 +790,7 @@ h1, h2, h3 { font-family: var(--font-display); line-height: 1.2; }
 }
 
 /* =========================================================================
-   RESPONSIVE — MOBILE (max-width: 768px)
+   RESPONSIVE: MOBILE (max-width: 768px)
    ========================================================================= */
 @media (max-width: 768px) {
   .origin__grid { grid-template-columns: 1fr; }
@@ -808,7 +808,7 @@ h1, h2, h3 { font-family: var(--font-display); line-height: 1.2; }
 }
 
 /* =========================================================================
-   RESPONSIVE — SMALL MOBILE (max-width: 420px)
+   RESPONSIVE: SMALL MOBILE (max-width: 420px)
    ========================================================================= */
 @media (max-width: 420px) {
   .hero__price { font-size: 4rem; }

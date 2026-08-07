@@ -1,4 +1,4 @@
-# ₹15 — The Mumbai Vada Pav Story
+# ₹15: The Mumbai Vada Pav Story
 
 A love letter to Mumbai's soul food. Born on a railway platform in 1966. Served on newspaper. Eaten standing up. The ₹15 revolution that feeds twenty million people every day.
 
@@ -40,7 +40,7 @@ A scroll-driven landing page that tells the story of vada pav through:
 ## Run Locally
 
 ```bash
-# No build step needed — just open the file
+# No build step needed. Just open the file
 open index.html
 
 # Or use a local server

@@ -212,6 +212,75 @@ h1, h2, h3 { font-family: var(--font-display); line-height: 1.2; }
 }
 
 /* =========================================================================
+   THE STALL SECTION (Real location)
+   ========================================================================= */
+.the-stall {
+  background: linear-gradient(180deg, var(--night-deep) 0%, #0d0800 100%);
+  padding: var(--section-gap) 0;
+}
+
+.the-stall__heading {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.the-stall__subtitle {
+  text-align: center;
+  color: var(--text-muted);
+  margin-bottom: 3rem;
+  font-style: italic;
+}
+
+.the-stall__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.the-stall__photo img {
+  width: 100%;
+  border-radius: 8px;
+  border: 2px solid rgba(227, 169, 74, 0.2);
+}
+
+.the-stall__info h3 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--saffron);
+  margin-bottom: 1.2rem;
+}
+
+.the-stall__details {
+  list-style: none;
+  margin-bottom: 1.5rem;
+}
+
+.the-stall__details li {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(227, 169, 74, 0.1);
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+.the-stall__details li strong {
+  color: var(--text-primary);
+  margin-right: 0.5rem;
+}
+
+.the-stall__map {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(227, 169, 74, 0.15);
+}
+
+@media (max-width: 768px) {
+  .the-stall__grid { grid-template-columns: 1fr; }
+}
+
+/* =========================================================================
    TRAIN MAP SECTION
    ========================================================================= */
 .train-map {

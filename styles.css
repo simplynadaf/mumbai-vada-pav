@@ -159,6 +159,11 @@ h1, h2, h3 { font-family: var(--font-display); line-height: 1.2; }
   font-size: 1.05rem;
 }
 
+#story .origin__text p {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
 .origin__year {
   font-family: var(--font-display);
   font-size: clamp(4rem, 8vw, 7rem);

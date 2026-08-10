@@ -426,11 +426,21 @@
     revealElements.forEach(el => revealObserver.observe(el));
 
     /* ═══════════════════════════════════════════════════════════════════
-       NAVBAR SCROLL EFFECT
+       NAVBAR SCROLL EFFECT — gradual fade-in of links
        ═══════════════════════════════════════════════════════════════════ */
     const nav = document.querySelector('.nav');
+    const navLinksEl = document.querySelector('.nav__links');
+    const heroHeight = window.innerHeight;
+    
     window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 100);
+      const scrollY = window.scrollY;
+      // Links fade in between 20% and 80% of hero height
+      const fadeStart = heroHeight * 0.2;
+      const fadeEnd = heroHeight * 0.8;
+      const progress = Math.min(Math.max((scrollY - fadeStart) / (fadeEnd - fadeStart), 0), 1);
+      
+      navLinksEl.style.opacity = progress;
+      nav.classList.toggle('scrolled', scrollY > fadeStart);
     }, { passive: true });
 
     /* ═══════════════════════════════════════════════════════════════════

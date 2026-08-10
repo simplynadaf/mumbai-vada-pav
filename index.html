@@ -265,7 +265,7 @@
        ═══════════════════════════════════════════════════════════════════ -->
   <section class="closer section" id="closer" aria-label="Closing">
     <div class="container">
-      <p class="closer__greeting reveal" lang="mr">खाल्ला का?</p>
+      <p class="closer__greeting" lang="mr">खाल्ला का?</p>
       <p class="closer__translation">"Khaalya ka?"</p>
       <p class="closer__meaning">
         It means "have you eaten?" in Marathi. But it never really means that.
@@ -472,6 +472,32 @@
       }, { threshold: 0 });
       const dotsContainer = document.querySelector('.station-dots');
       if (dotsContainer) dotsObserver.observe(dotsContainer);
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       PAUSE STAGE GLOW WHEN OFF-SCREEN (GPU optimization - box-shadow)
+       ═══════════════════════════════════════════════════════════════════ */
+    const assemblerStage = document.querySelector('.assembler__stage');
+    if (assemblerStage) {
+      const stageObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          assemblerStage.style.animationPlayState = entry.isIntersecting ? 'running' : 'paused';
+        });
+      }, { threshold: 0 });
+      stageObserver.observe(assemblerStage);
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       CLOSER GREETING REVEAL (emotional peak — separate observer)
+       ═══════════════════════════════════════════════════════════════════ */
+    const closerGreeting = document.querySelector('.closer__greeting');
+    if (closerGreeting) {
+      const closerObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) closerGreeting.classList.add('visible');
+        });
+      }, { threshold: 0.3 });
+      closerObserver.observe(closerGreeting);
     }
 
     /* ═══════════════════════════════════════════════════════════════════

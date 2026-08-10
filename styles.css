@@ -406,53 +406,85 @@ h1, h2, h3 {
    RECIPE SECTION
    ========================================================================= */
 .recipe {
-  background: #141E30;
+  background: var(--night-deep);
   color: var(--text-primary);
   padding: var(--section-gap) 0;
-  border-top: 1px solid rgba(227, 169, 74, 0.1);
 }
 
-.recipe h2 {
+.recipe__header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.recipe__header h2 {
   font-size: clamp(2rem, 4vw, 3rem);
   color: var(--saffron);
   margin-bottom: 0.5rem;
 }
 
+.recipe__tagline {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+}
+
 .recipe__servings {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 1rem;
-  margin: 1.5rem 0;
+  gap: 0.75rem;
+  background: rgba(227, 169, 74, 0.08);
+  border: 1px solid rgba(227, 169, 74, 0.2);
+  border-radius: 100px;
+  padding: 0.5rem 1.5rem;
 }
 
 .recipe__servings label {
-  font-weight: 500;
-  color: var(--text-muted);
+  font-weight: 600;
+  color: var(--saffron);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .recipe__servings select {
-  padding: 0.5rem 1rem;
-  border: 2px solid rgba(227, 169, 74, 0.3);
+  padding: 0.3rem 0.8rem;
+  border: none;
   border-radius: 4px;
   font-size: 1rem;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.08);
   color: var(--text-primary);
   cursor: pointer;
   font-family: var(--font-body);
 }
 
-.recipe__grid {
+.recipe__card {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  margin-top: 2rem;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 0;
+  border: 1px solid rgba(227, 169, 74, 0.15);
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.recipe__ingredients {
+  padding: 2.5rem;
+  border-right: 1px solid rgba(227, 169, 74, 0.1);
+}
+
+.recipe__method {
+  padding: 2.5rem;
 }
 
 .recipe__ingredients h3,
 .recipe__method h3 {
-  font-size: 1.3rem;
-  margin-bottom: 1rem;
-  color: var(--text-warm);
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1.5rem;
+  color: var(--saffron);
 }
 
 .recipe__ingredients ul {
@@ -460,23 +492,56 @@ h1, h2, h3 {
 }
 
 .recipe__ingredients li {
-  padding: 0.5rem 0;
-  border-bottom: 1px solid rgba(227, 169, 74, 0.1);
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
   color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.recipe__ingredients li:last-child {
+  border-bottom: none;
 }
 
 .recipe__ingredients li span {
-  font-weight: 600;
-  color: var(--saffron);
+  font-weight: 700;
+  color: var(--text-primary);
+  font-size: 1.05rem;
 }
 
 .recipe__method ol {
-  padding-left: 1.5rem;
+  list-style: none;
+  padding: 0;
+  counter-reset: none;
 }
 
 .recipe__method li {
-  padding: 0.6rem 0;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
   color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.recipe__method li:last-child {
+  border-bottom: none;
+}
+
+.recipe__step-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: rgba(227, 169, 74, 0.15);
+  color: var(--saffron);
+  font-weight: 700;
+  font-size: 0.85rem;
+  flex-shrink: 0;
 }
 
 /* =========================================================================
@@ -635,7 +700,8 @@ h1, h2, h3 {
    ========================================================================= */
 @media (max-width: 768px) {
   .origin__grid { grid-template-columns: 1fr; }
-  .recipe__grid { grid-template-columns: 1fr; }
+  .recipe__card { grid-template-columns: 1fr; }
+  .recipe__ingredients { border-right: none; border-bottom: 1px solid rgba(227, 169, 74, 0.1); }
   .hero__price { font-size: 5rem; }
   .hero__content { padding: 1.5rem; }
 }
@@ -955,7 +1021,8 @@ h1, h2, h3 {
    ========================================================================= */
 @media (max-width: 768px) {
   .origin__grid { grid-template-columns: 1fr; }
-  .recipe__grid { grid-template-columns: 1fr; }
+  .recipe__card { grid-template-columns: 1fr; }
+  .recipe__ingredients { border-right: none; border-bottom: 1px solid rgba(227, 169, 74, 0.1); }
   .hero__price { font-size: 5rem; }
   .hero__content { padding: 1.5rem; }
   .stats__grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }

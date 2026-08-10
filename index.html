@@ -30,7 +30,6 @@
     <button class="nav__toggle" aria-label="Open menu" aria-expanded="false" id="nav-toggle">☰</button>
     <ul class="nav__links" id="nav-links">
       <li><a href="#origin">Origin</a></li>
-      <li><a href="#map">Map</a></li>
       <li><a href="#assembler">Build</a></li>
       <li><a href="#recipe">Recipe</a></li>
       <li><a href="#culture">Culture</a></li>
@@ -112,34 +111,6 @@
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════════════
-       TRAIN MAP: Every dot is a stall
-       ═══════════════════════════════════════════════════════════════════ -->
-  <section class="train-map section" id="map" aria-label="Mumbai railway map">
-    <div class="container--wide">
-      <h2>Every Dot is a Stall</h2>
-      <p class="train-map__subtitle reveal">Mumbai's local railway carries 7.5 million commuters daily. At every station, without exception, someone is frying vada.</p>
-      <img src="./img/mumbai-train.jpg" alt="Mumbai local train at a crowded platform during golden hour, with a vada pav stall visible at the end of the platform" class="train-map__image" loading="lazy" width="900" height="506" />
-      <div class="station-dots" aria-hidden="true">
-        <span class="station-dot" style="--delay:0s"></span>
-        <span class="station-dot" style="--delay:0.2s"></span>
-        <span class="station-dot" style="--delay:0.4s"></span>
-        <span class="station-dot" style="--delay:0.6s"></span>
-        <span class="station-dot" style="--delay:0.8s"></span>
-        <span class="station-dot" style="--delay:1.0s"></span>
-        <span class="station-dot" style="--delay:1.2s"></span>
-        <span class="station-dot" style="--delay:1.4s"></span>
-        <span class="station-dot" style="--delay:1.6s"></span>
-        <span class="station-dot" style="--delay:1.8s"></span>
-        <span class="station-dot" style="--delay:2.0s"></span>
-        <span class="station-dot" style="--delay:0.3s"></span>
-        <span class="station-dot" style="--delay:0.7s"></span>
-        <span class="station-dot" style="--delay:1.1s"></span>
-        <span class="station-dot" style="--delay:1.5s"></span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════════════════
        ASSEMBLER: Build Your Own
        ═══════════════════════════════════════════════════════════════════ -->
   <section class="assembler section" id="assembler" aria-label="Vada Pav assembler">
@@ -176,23 +147,22 @@
        ═══════════════════════════════════════════════════════════════════ -->
   <section class="recipe section" id="recipe" aria-label="Recipe">
     <div class="container--wide">
-      <h2>The Recipe</h2>
-      <p>There is no secret. There is only practice.</p>
-
-      <div class="recipe__servings">
-        <label for="servings">Servings:</label>
-        <select id="servings" aria-label="Number of servings">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="4" selected>4</option>
-          <option value="6">6</option>
-          <option value="8">8</option>
-          <option value="10">10</option>
-          <option value="12">12</option>
-        </select>
+      <div class="recipe__header">
+        <h2>The Recipe</h2>
+        <p class="recipe__tagline">There is no secret. There is only practice.</p>
+        <div class="recipe__servings">
+          <label for="servings">Serves</label>
+          <select id="servings" aria-label="Number of servings">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="4" selected>4</option>
+            <option value="6">6</option>
+            <option value="8">8</option>
+          </select>
+        </div>
       </div>
 
-      <div class="recipe__grid">
+      <div class="recipe__card">
         <div class="recipe__ingredients">
           <h3>Ingredients</h3>
           <ul>
@@ -213,11 +183,11 @@
         <div class="recipe__method">
           <h3>Method</h3>
           <ol>
-            <li>Mash boiled potatoes. Mix in minced garlic, green chilies, turmeric, salt. Shape into balls slightly smaller than the pav.</li>
-            <li>Make batter: gram flour, pinch of baking soda, water, salt. Consistency should coat the back of a spoon.</li>
-            <li>Heat oil to 180°C. Dip each potato ball in batter. Fry until the outside is golden and crackly. About 3 minutes. Drain on paper.</li>
-            <li>Slice pav, spread green chutney on one half. Place hot vada inside. Sprinkle dry garlic chutney. Add a fried green chili.</li>
-            <li>Serve immediately. On newspaper. Standing up.</li>
+            <li><span class="recipe__step-num">1</span>Mash boiled potatoes. Mix in minced garlic, green chilies, turmeric, salt. Shape into balls slightly smaller than the pav.</li>
+            <li><span class="recipe__step-num">2</span>Make batter: gram flour, pinch of baking soda, water, salt. Consistency should coat the back of a spoon.</li>
+            <li><span class="recipe__step-num">3</span>Heat oil to 180°C. Dip each potato ball in batter. Fry until the outside is golden and crackly. About 3 minutes. Drain on paper.</li>
+            <li><span class="recipe__step-num">4</span>Slice pav, spread green chutney on one half. Place hot vada inside. Sprinkle dry garlic chutney. Add a fried green chili.</li>
+            <li><span class="recipe__step-num">5</span>Serve immediately. On newspaper. Standing up.</li>
           </ol>
         </div>
       </div>

@@ -406,14 +406,15 @@ h1, h2, h3 {
    RECIPE SECTION
    ========================================================================= */
 .recipe {
-  background: var(--newspaper);
-  color: var(--ink);
+  background: #141E30;
+  color: var(--text-primary);
   padding: var(--section-gap) 0;
+  border-top: 1px solid rgba(227, 169, 74, 0.1);
 }
 
 .recipe h2 {
   font-size: clamp(2rem, 4vw, 3rem);
-  color: var(--ink);
+  color: var(--saffron);
   margin-bottom: 0.5rem;
 }
 
@@ -426,16 +427,16 @@ h1, h2, h3 {
 
 .recipe__servings label {
   font-weight: 500;
-  color: #4a3f2f;
+  color: var(--text-muted);
 }
 
 .recipe__servings select {
   padding: 0.5rem 1rem;
-  border: 2px solid var(--tungsten);
+  border: 2px solid rgba(227, 169, 74, 0.3);
   border-radius: 4px;
   font-size: 1rem;
-  background: white;
-  color: var(--ink);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
   cursor: pointer;
   font-family: var(--font-body);
 }
@@ -451,7 +452,7 @@ h1, h2, h3 {
 .recipe__method h3 {
   font-size: 1.3rem;
   margin-bottom: 1rem;
-  color: var(--night-blue);
+  color: var(--text-warm);
 }
 
 .recipe__ingredients ul {
@@ -460,13 +461,13 @@ h1, h2, h3 {
 
 .recipe__ingredients li {
   padding: 0.5rem 0;
-  border-bottom: 1px solid #e5ddd0;
-  color: #3d3425;
+  border-bottom: 1px solid rgba(227, 169, 74, 0.1);
+  color: var(--text-muted);
 }
 
 .recipe__ingredients li span {
   font-weight: 600;
-  color: var(--night-blue);
+  color: var(--saffron);
 }
 
 .recipe__method ol {
@@ -475,7 +476,7 @@ h1, h2, h3 {
 
 .recipe__method li {
   padding: 0.6rem 0;
-  color: #3d3425;
+  color: var(--text-muted);
 }
 
 /* =========================================================================

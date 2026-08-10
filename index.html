@@ -14,7 +14,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -24,7 +24,8 @@
        ═══════════════════════════════════════════════════════════════════ -->
   <nav class="nav" aria-label="Main navigation">
     <span class="nav__logo">₹15</span>
-    <ul class="nav__links">
+    <button class="nav__toggle" aria-label="Open menu" aria-expanded="false" id="nav-toggle">☰</button>
+    <ul class="nav__links" id="nav-links">
       <li><a href="#origin">Origin</a></li>
       <li><a href="#map">Map</a></li>
       <li><a href="#assembler">Build</a></li>
@@ -47,32 +48,6 @@
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════════════
-       STATS STRIP
-       ═══════════════════════════════════════════════════════════════════ -->
-  <section class="stats" aria-label="Statistics">
-    <div class="container--wide">
-      <div class="stats__grid reveal">
-        <div class="stats__item">
-          <h3>1966</h3>
-          <p>Year invented</p>
-        </div>
-        <div class="stats__item">
-          <h3>₹15</h3>
-          <p>Still costs today</p>
-        </div>
-        <div class="stats__item">
-          <h3>20M+</h3>
-          <p>Served daily</p>
-        </div>
-        <div class="stats__item">
-          <h3>30s</h3>
-          <p>Time to eat</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════════════════
        ORIGIN: 1966
        ═══════════════════════════════════════════════════════════════════ -->
   <section class="origin section" id="origin" aria-label="The origin story">
@@ -86,6 +61,32 @@
           <p>The mills closed in the 1980s. The workers scattered. The city reinvented itself three times over. But every platform, every street corner, every junction in Mumbai still has a cart just like Ashok's. Sixty years later, the price went from ₹1 to ₹15. Everything else stayed the same.</p>
         </div>
         <img src="./img/origin-1966.jpg" alt="Black and white photograph of Mumbai textile mill workers during lunch break in the 1960s" class="origin__image" loading="lazy" width="640" height="360" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       STATS STRIP (moved after origin for better emotional flow)
+       ═══════════════════════════════════════════════════════════════════ -->
+  <section class="stats" aria-label="Statistics">
+    <div class="container--wide">
+      <div class="stats__grid reveal">
+        <div class="stats__item">
+          <h3 data-count="1966">1966</h3>
+          <p>Year invented</p>
+        </div>
+        <div class="stats__item">
+          <h3>₹15</h3>
+          <p>Still costs today</p>
+        </div>
+        <div class="stats__item">
+          <h3 data-count="20">20M+</h3>
+          <p>Served daily</p>
+        </div>
+        <div class="stats__item">
+          <h3 data-count="30">30s</h3>
+          <p>Time to eat</p>
+        </div>
       </div>
     </div>
   </section>
@@ -298,7 +299,28 @@
        ═══════════════════════════════════════════════════════════════════ -->
   <script>
     /* ═══════════════════════════════════════════════════════════════════
-       ASSEMBLER INTERACTION
+       HAMBURGER NAV TOGGLE
+       ═══════════════════════════════════════════════════════════════════ */
+    const navToggle = document.getElementById('nav-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    navToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', isOpen);
+      navToggle.textContent = isOpen ? '✕' : '☰';
+    });
+
+    // Close nav when a link is clicked
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        navToggle.textContent = '☰';
+      });
+    });
+
+    /* ═══════════════════════════════════════════════════════════════════
+       ASSEMBLER INTERACTION (with stacking effect)
        ═══════════════════════════════════════════════════════════════════ */
     const steps = document.querySelectorAll('.assembler__step-btn');
     const layers = document.querySelectorAll('.assembler__layer');
@@ -318,8 +340,18 @@
         const step = parseInt(btn.dataset.step);
         steps.forEach(b => b.setAttribute('aria-selected', 'false'));
         btn.setAttribute('aria-selected', 'true');
-        layers.forEach(l => l.classList.remove('active'));
-        document.querySelector(`.assembler__layer[data-step="${step}"]`).classList.add('active');
+
+        // Stacking effect: previous layers show as dim background
+        layers.forEach(l => {
+          const layerStep = parseInt(l.dataset.step);
+          l.classList.remove('active', 'stacked');
+          if (layerStep === step) {
+            l.classList.add('active');
+          } else if (layerStep < step) {
+            l.classList.add('stacked');
+          }
+        });
+
         description.textContent = descriptions[step];
         progressBar.style.width = (step * 20) + '%';
       });
@@ -424,6 +456,22 @@
         p.style.opacity = 0.2 + Math.random() * 0.4;
         particlesContainer.appendChild(p);
       }
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       PAUSE STATION DOTS WHEN OFF-SCREEN (GPU optimization)
+       ═══════════════════════════════════════════════════════════════════ */
+    const stationDots = document.querySelectorAll('.station-dot');
+    if (stationDots.length) {
+      const dotsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          stationDots.forEach(dot => {
+            dot.style.animationPlayState = entry.isIntersecting ? 'running' : 'paused';
+          });
+        });
+      }, { threshold: 0 });
+      const dotsContainer = document.querySelector('.station-dots');
+      if (dotsContainer) dotsObserver.observe(dotsContainer);
     }
 
     /* ═══════════════════════════════════════════════════════════════════

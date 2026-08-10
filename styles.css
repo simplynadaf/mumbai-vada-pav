@@ -81,7 +81,7 @@ h1, h2, h3 { font-family: var(--font-display); line-height: 1.2; }
 .hero__bg {
   position: absolute;
   inset: 0;
-  background: url('./img/hero-stall.jpg') center/cover no-repeat;
+  background: url('./img/hero-stall.jpg?v=2') center/cover no-repeat;
   filter: brightness(0.6);
   z-index: 0;
 }
@@ -565,7 +565,7 @@ h1, h2, h3 { font-family: var(--font-display); line-height: 1.2; }
 .hero__bg {
   position: absolute;
   inset: 0;
-  background: url('./img/hero-stall.jpg') center/cover no-repeat;
+  background: url('./img/hero-stall.jpg?v=2') center/cover no-repeat;
   filter: brightness(0.6);
   z-index: 0;
   will-change: transform;

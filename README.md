@@ -27,10 +27,9 @@ The ₹15 revolution that feeds twenty million people every day.
 
 ## 🎬 Demo Video
 
-<!-- TODO: Add YouTube embed once video is recorded -->
-<!-- [![Watch the Demo](./img/screenshot-hero.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID) -->
+[![Watch the Demo](https://img.youtube.com/vi/qZHzBS3UQbA/maxresdefault.jpg)](https://youtu.be/qZHzBS3UQbA)
 
-> 📹 *Demo video coming soon — showing the full scroll experience, interactive assembler, and recipe scaler in action.*
+> 📹 *Watch the 1:43 scroll-through showing the full experience, interactive assembler, and recipe scaler in action.*
 
 ---
 

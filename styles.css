@@ -97,7 +97,7 @@ h1, h2, h3 {
 .hero__bg {
   position: absolute;
   inset: 0;
-  background: url('./img/hero-stall.jpg?v=2') right center/cover no-repeat;
+  background: url('./img/hero-stall.jpg?v=2') center center/cover no-repeat;
   filter: brightness(0.6);
   z-index: 0;
   will-change: transform;
